@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Poging masipag😆</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff6a88,#ff99ac);
+}
+
+h1{
+    color:white;
+    font-size:40px;
+    text-align:center;
+}
+
+/* button style */
+button{
+    padding:15px 40px;
+    font-size:18px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    position:absolute;
+    transition:all 0.2s ease;
+}
+
+#yes{
+    background:#28a745;
+    color:white;
+    left:35%;
+    top:60%;
+}
+
+/* YES animation */
+#yes:hover{
+    transform:scale(1.2);
+    box-shadow:0 0 25px rgba(0,255,0,0.9);
+}
+
+#no{
+    background:#dc3545;
+    color:white;
+    left:55%;
+    top:60%;
+}
+
+/* animation kapag lalayo */
+.run{
+    transform:scale(1.3);
+    box-shadow:0 0 30px rgba(255,0,0,0.9);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>MAG HUGAS KANA BAIT.</h1>
+
+<button id="yes" onclick="yesClicked()">YES</button>
+<button id="no">NO</button>
+
+<script>
+
+const noBtn = document.getElementById("no");
+
+function moveButton(){
+
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    // animation effect
+    noBtn.classList.add("run");
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+
+    // alisin animation after 200ms
+    setTimeout(()=>{
+        noBtn.classList.remove("run");
+    },200);
+}
+
+// phone
+noBtn.addEventListener("touchstart", moveButton);
+
+// pc
+noBtn.addEventListener("mouseover", moveButton);
+
+function yesClicked(){
+    document.body.innerHTML = `
+        <h1 style="color:white;font-size:60px;text-align:center;">
+        Good job MABAIT NA BATAA!!!!!!!!!
+        </h1>
+    `;
+}
+
+</script>
+
+</body>
+</html>
